@@ -1,4 +1,9 @@
 module.exports = {
+  ssr: false,
+  target: 'static',
+  router: {
+    base: '/liarsli/'
+  },
   /*
   ** Headers of the page
   */
@@ -21,21 +26,33 @@ module.exports = {
   /*
   ** Build configuration
   */
-  build: {
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  },
-  target: 'static'
+  // build: {
+  //   /*
+  //   ** Run ESLint on save
+  //   */
+  //   extend (config, { isDev, isClient }) {
+  //     if (isDev && isClient) {
+  //       config.module.rules.push({
+  //         enforce: 'pre',
+  //         test: /\.(js|vue)$/,
+  //         loader: 'eslint-loader',
+  //         exclude: /(node_modules)/
+  //       })
+  //     }
+  //   }
+  // },
+  // generate: {
+  //   done(generator){
+  //     // Copy dist files to public/_nuxt
+  //     if (generator.nuxt.options.dev === false && generator.nuxt.options.mode === 'spa') {
+  //       const publicDir = join(generator.nuxt.options.rootDir, 'public', '_nuxt')
+  //         removeSync(publicDir) //Clear content from previous builds
+  //         copySync(join(generator.nuxt.options.generate.dir, '_nuxt'), publicDir)
+  //         copySync(join(generator.nuxt.options.generate.dir, '200.html'), join(publicDir, 'index.html'))
+  //         removeSync(generator.nuxt.options.generate.dir) //Delete 'Dist' folder from Laravel root
+  //     }
+  //     console.log("After generate dist folder");        
+  //   }
+  // }
 }
 
